@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --inter-font: "Inter", sans-serif;
+}
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.player-ranking-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 2rem;
+  overflow-x: auto;
+}
+.dark-mode .player-ranking-container {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+body.light-mode {
+  background-color: #edf1fa;
+  color: #2c3d50;
+}
+
+body.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+.player-ranking-title {
+  font-family: var(--inter-font);
+  font-weight: 600;
+  font-size: 26px;
+  text-align: center;
+  color: #3c98db;
+  margin-bottom: 2rem;
+  line-height: 100%;
+}
+.dark-mode .player-ranking-title {
+  color: #ffffff;
+}
+.player-ranking-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.player-ranking-table th,
+.player-ranking-table td {
+  font-family: var(--inter-font);
+  font-size: 22px;
+  text-align: center;
+  padding: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-right: 1px solid #e0e0e0;
+  font-weight: 500;
+}
+
+.player-ranking-table th {
+  background-color: #2c3d50;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+}
+.dark-mode .player-ranking-table th {
+  background-color: #ebfc69;
+  color: #000000;
+}
+.player-ranking-table td {
+  border-bottom: 1px solid #e0e0e0;
+}
+.dark-mode .player-ranking-table td {
+  background-color: #414040;
+  color: #ffffff;
+  border-bottom: 1px solid #000000;
+}
+.player-ranking-table tr:last-child td {
+  border-bottom: none;
+}
+
+.player-ranking-table tr:nth-child(even) {
+  background-color: #ebebeb;
+}
+
+.player-ranking-table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.player-ranking-table tr.highlighted {
+  color: #ff0000;
+  font-weight: 500;
+  font-family: var(--inter-font);
+}
+.dark-mode .player-ranking-table tr.highlighted {
+  color: #ff0000;
+  background-color: #717171;
+}
+
+.player-ranking-table tr:hover {
+  background-color: #ebebeb6a;
+  transition: background-color 0.3s ease;
+}
+
+.gold-medal,
+.bronze-medal {
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .player-ranking-title {
+    font-size: 1.5rem;
+  }
+
+  .player-ranking-table {
+    font-size: 0.9rem;
+  }
+
+  .player-ranking-table th,
+  .player-ranking-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .player-ranking-container {
+    padding: 1rem 0.5rem;
+  }
+  .gold-medal img {
+    width: 12px !important;
+    height: 12px !important;
+    margin-right: 0px;
+  }
+  .bronze-medal img {
+    width: 12px !important;
+    height: 12px !important;
+    margin-right: 0px;
+  }
+  .player-ranking-table {
+    font-size: 0.8rem;
+  }
+
+  .player-ranking-table th,
+  .player-ranking-table td {
+    padding: 0.5rem 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .player-ranking-title {
+    font-size: 1.2rem;
+  }
+}

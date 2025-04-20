@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Bet</title>
+    <!-- <link rel="stylesheet" href="football.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <link rel="stylesheet" href="login_signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+
+</head>
+
+<body>
+    <div class="sport-app-layout">
+        <div class="soccer-visual">
+            <img src="./images/Login_image.png" alt="Soccer player kicking ball" class="player-image"
+                style="height: 650px;">
+        </div>
+
+        <div class="auth-panel" style="height: 650px;">
+            <h2 class="login-title">Sign Up</h2>
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Your email">
+            </div>
+
+            <div class="input-group">
+                <div class="password-wrapper">
+                    <input type="password" class="form-control" placeholder="Your Password">
+                    <span class="visibility-toggle material-icons" style="color: #E8EAED;">visibility_off</span>
+                </div>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const toggles = document.querySelectorAll(".visibility-toggle");
+
+                    toggles.forEach(toggle => {
+                        toggle.addEventListener("click", () => {
+                            const input = toggle.previousElementSibling;
+                            if (input.type === "password") {
+                                input.type = "text";
+                                toggle.textContent = "visibility";
+                            } else {
+                                input.type = "password";
+                                toggle.textContent = "visibility_off";
+                            }
+                        });
+                    });
+                });
+            </script>
+            <div class="input-group">
+                <div class="password-wrapper">
+                    <input type="password" class="form-control" placeholder="Confirm Password">
+                    <span class="visibility-toggle material-icons" style="color: #E8EAED;">visibility_off</span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="dropdown-wrapper">
+                    <select class="form-control" id="countrySelect" style="color: #E8EAED;" required>
+                        <option value="" style="color:#000000;">Choose Country</option>
+                        <option value="IN" style="color:#000000;">India</option>
+                        <option value="US" style="color:#000000;">United States</option>
+                        <option value="UK" style="color:#000000;">United Kingdom</option>
+                        <option value="CA" style="color:#000000;">Canada</option>
+                        <option value="AU" style="color:#000000;">Australia</option>
+                    </select>
+                    <span class="material-symbols-outlined">
+                        arrow_drop_down
+                    </span>
+                </div>
+            </div>
+            <script>
+                const select = document.getElementById("countrySelect");
+                const icon = document.querySelector(".dropdown-icon");
+
+                select.addEventListener("focus", () => {
+                    icon.textContent = "expand_less";
+                });
+
+                select.addEventListener("blur", () => {
+                    icon.textContent = "expand_more";
+                });
+            </script>
+
+
+            <a href="login.html"> <button class="signin-button" style="margin: 10px 0px 10px 0px;">Login</button></a>
+
+            <!-- <div class="account-options">
+                <a href="#">Forgot Your password?</a>
+                <a href="#" class="account-link">Create account</a>
+            </div> -->
+
+            <div class="divider-line"></div>
+
+            <p class="alt-signin-label" style="margin-bottom: 13px ;">Other Ways to Sign Up</p>
+
+            <div class="social-signin">
+                <button class="oauth-button">
+                    <img src="./images/gogal_icon.png" alt="goglelogo">
+                    Continue With Google
+                </button>
+
+                <button class="oauth-button">
+                    <img src="./images/facebook_icon.png" alt="facebookogo">
+
+                    Continue With Facebook
+                </button>
+            </div>
+            <p class="alt-signin-label">Already have an account? <span
+                    style="color: #4294FC;text-decoration: underline;font-weight: 600;">Login</span></p>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

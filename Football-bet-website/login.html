@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Bet</title>
+  <!-- <link rel="stylesheet" href="football.css"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+  <link rel="stylesheet" href="login_signup.css">
+</head>
+
+<body>
+  <div class="sport-app-layout">
+    <div class="soccer-visual">
+      <img src="./images/Login_image.png" alt="Soccer player kicking ball" class="player-image">
+    </div>
+
+    <div class="auth-panel">
+      <h2 class="login-title">Login</h2>
+
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Your email">
+      </div>
+
+      <div class="input-group">
+        <div class="password-wrapper">
+          <input type="password" class="form-control" placeholder="Your Password" />
+          <span class="visibility-toggle material-icons" style="color: #E8EAED;">visibility_off</span>
+        </div>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const toggles = document.querySelectorAll(".visibility-toggle");
+
+          toggles.forEach(toggle => {
+            toggle.addEventListener("click", () => {
+              const input = toggle.previousElementSibling;
+              if (input.type === "password") {
+                input.type = "text";
+                toggle.textContent = "visibility";
+              } else {
+                input.type = "password";
+                toggle.textContent = "visibility_off";
+              }
+            });
+          });
+        });
+      </script>
+
+
+      <button class="signin-button">Login</button>
+
+      <div class="account-options">
+        <a href="#">Forgot Your password?</a>
+        <a href="#" class="account-link">Create account</a>
+      </div>
+
+      <div class="divider-line"></div>
+
+      <p class="alt-signin-label">Other Ways to sign in</p>
+
+      <div class="social-signin">
+        <button class="oauth-button">
+          <img src="./images/gogal_icon.png" alt="goglelogo">
+          Continue With Google
+        </button>
+
+        <button class="oauth-button">
+          <img src="./images/facebook_icon.png" alt="facebookogo">
+
+          Continue With Facebook
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

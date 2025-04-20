@@ -1,0 +1,289 @@
+/* login-form-css-start */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --inter-font: "Inter", sans-serif;
+}
+
+.sport-app-layout {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+}
+
+.soccer-visual {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.player-image {
+  width: 100%;
+  height: 100%;
+  max-width: 884px;
+  height: 540px;
+  object-fit: cover;
+  object-position: center;
+}
+.dark-mode .auth-panel {
+  background-color: #000000;
+}
+.dark-mode .login-title {
+  color: #ffffff;
+}
+
+.dark-mode .form-control {
+  background-color: #000000;
+}
+.dark-mode .form-control::placeholder {
+  color: #ffffff;
+}
+.dark-mode .signin-button {
+  background-color: #ebfc69;
+  color: #000000;
+}
+.dark-mode .divider-line {
+  background-color: #fff;
+}
+.dark-mode .alt-signin-label {
+  color: #ffffff;
+}
+.dark-mode .oauth-button {
+  background-color: #414040;
+  color: #fff;
+}
+.auth-panel {
+  flex: 0 0 45%;
+  display: flex;
+  max-width: 884px;
+  height: 540px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 30px;
+  background-color: #edf1fa;
+}
+
+.login-title {
+  font-family: var(--inter-font);
+  color: #3c98db;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+  line-height: 100%;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 15px 15px;
+  border: 1px solid white;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.form-control::placeholder {
+  color: #e8eaed;
+  font-family: var(--inter-font);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.visibility-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  cursor: pointer;
+  user-select: none;
+}
+
+.signin-button {
+  width: 100%;
+  padding: 18px;
+  margin: 10px 0px 25px 0px;
+  background-color: #2c3d50;
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: var(--inter-font);
+}
+
+.account-options {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+.dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.select-placeholder {
+  color: red;
+}
+.dropdown-wrapper select {
+  width: 100%;
+  padding-right: 40px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.material-symbols-outlined {
+  font-size: 24px;
+  color: #e8eaed;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  color: #e8eaed;
+  transition: transform 0.3s ease;
+  padding-left: 7px;
+}
+.dropdown-wrapper select option[disabled] {
+  color: #e8eaed;
+}
+
+.account-options a {
+  color: #000000;
+  font-family: var(--inter-font);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.account-link {
+  font-weight: bold;
+  color: #000;
+  margin-left: 5px;
+}
+
+.divider-line {
+  height: 1px;
+  background-color: #000000;
+  margin: 15px 0 20px;
+  border-top: 1px solid #000000;
+}
+
+.alt-signin-label {
+  text-align: center;
+  font-family: var(--inter-font);
+  font-weight: 500;
+  color: #000000;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.social-signin {
+  margin-bottom: 10px;
+}
+
+.oauth-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  padding: 13px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 30px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: var(--inter-font);
+  color: #000000;
+  font-weight: 500;
+}
+
+.oauth-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.google-icon {
+  background-color: #fff;
+  color: #ea4335;
+}
+
+.facebook-icon {
+  background-color: #1877f2;
+  color: #fff;
+}
+@media (max-width: 480px) {
+  .player-image {
+    height: 150px !important;
+  }
+  .account-options a {
+    font-size: 12px !important;
+  }
+}
+/* Responsive design */
+@media (max-width: 768px) {
+  .sport-app-layout {
+    flex-direction: column;
+  }
+
+  .soccer-visual {
+    height: 250px;
+  }
+
+  .player-image {
+    height: 250px !important;
+  }
+
+  .auth-panel {
+    min-height: auto;
+    padding: 30px 20px;
+  }
+
+  .login-title {
+    font-size: 22px;
+  }
+
+  .form-control::placeholder {
+    font-size: 14px;
+  }
+
+  .account-options a {
+    font-size: 14px;
+  }
+
+  .signin-button {
+    padding: 15px;
+  }
+
+  .alt-signin-label {
+    font-size: 14px;
+  }
+}
+
+/* login-form-css-end */
