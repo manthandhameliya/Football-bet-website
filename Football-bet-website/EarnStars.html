@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="EarnStars.css" />
+</head>
+
+<body class="light-mode">
+  <div class="es-container">
+    <h1 class="es-header">Earn Stars</h1>
+
+    <div class="es-card">
+      <h2 class="es-card-title">Choose a Game to Earn Stars!</h2>
+
+      <!-- Quiz Modal placed below the title -->
+      <div class="modal" id="quizz-modal">
+        <div class="modal-content">
+          <button class="close-button" id="modal-close-x">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+
+          <h3 class="modal-header">Get More Stars With Quizz!</h3>
+
+          <div class="modal-info">
+            <div class="info-row">
+              <span class="info-label">Stars:</span>
+              <span class="info-value" id="stars-count">0</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Time Left:</span>
+              <span class="info-value" id="time-left">10</span>
+            </div>
+          </div>
+
+          <div id="quiz-content">
+            <p class="quiz-question">Quelle equipe a remporte la coupe mitropa 1965 ?</p>
+            <div class="quiz-options">
+              <button class="option-button">Tj Slovan Bratislava</button>
+              <button class="option-button">Vasas SC</button>
+              <button class="option-button">Acf Fiorentina</button>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="close-modal-btn" id="close-btn">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="es-buttons-container">
+        <button class="game-button" id="quizz-btn">Quizz</button>
+        <button class="game-button">Spin Wheel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get DOM Elements
+    const quizzBtn = document.getElementById('quizz-btn');
+    const modal = document.getElementById('quizz-modal');
+    const closeBtn = document.getElementById('close-btn');
+    const closeX = document.getElementById('modal-close-x');
+    const timeLeftEl = document.getElementById('time-left');
+
+    let timeLeft = 10;
+    let timerInterval;
+
+    function openModal() {
+      modal.style.display = 'flex';
+      startTimer();
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+      clearInterval(timerInterval);
+      timeLeft = 10;
+      timeLeftEl.textContent = timeLeft;
+    }
+
+    function startTimer() {
+      timeLeft = 10;
+      timeLeftEl.textContent = timeLeft;
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        timeLeftEl.textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+        }
+      }, 1000);
+    }
+
+    quizzBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    closeX.addEventListener('click', closeModal);
+  </script>
+</body>
+
+</html>

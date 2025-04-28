@@ -18,9 +18,7 @@
     <div class="profile-container">
         <div class="profile-header">
             <div class="profile-title">My Profile</div>
-
         </div>
-
         <div class="profile-content">
             <div class="profile-top">
                 <div class="profile-image-container">
@@ -31,16 +29,17 @@
                             <button class="upload-btn">Choose Pic</button>
                         </div>
                         <span id="file-name" class="file-name">No File Choose</span>
-                    </div>
+                    </div>  
                 </div>
-
-                <div class="profile-info">
+                <div class="profile-info">  
+                      
                     <div class="info-row name-row">
-                        <div class="info-label">Name:</div>
-                        <div class="info-value">ATOM SPIN</div>
                         <div class="edit-button">
                             <span class="material-symbols-outlined edit-icon" class="edit-icons">edit</span>
                         </div>
+                        <div class="info-label">Name:</div>
+                        <div class="info-value">ATOM SPIN</div>
+                      
                     </div>
                     <div class="info-row">
                         <div class="info-label">Email:</div>
@@ -73,14 +72,25 @@
                 </div>
 
                 <div class="referral-container">
-                    <div class="referral-code">
-                        <span>Referral Code:</span>
-                        <span>Unknown</span>
+                    <div class="referral-code" id="referralCode">
+                      <span>Referral Code:</span>
+                      <span id="codeText">XYZ123</span>
                     </div>
                     <button class="refer-btn">Refer a Friend</button>
-                </div>
+                  </div>
+                  
+                  <script>
+                    document.getElementById("referralCode").addEventListener("click", function () {
+                      const code = document.getElementById("codeText").innerText;
+                      navigator.clipboard.writeText(code).then(() => {
+                        alert("Referral code copied to clipboard!");
+                      }).catch(err => {
+                        alert("Failed to copy code: " + err);
+                      });
+                    });
+                  </script>
             </div>
-        </div>
+        </div>  
     </div>
     <div class="profile-container">
         <h1 class="profile-title">My Win History</h1>

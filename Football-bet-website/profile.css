@@ -18,6 +18,7 @@ body.light-mode {
 }
 
 body.dark-mode {
+
   background-color: #000000;
   color: #ffffff;
 }
@@ -304,6 +305,7 @@ body.dark-mode {
   line-height: 100%;
   color: #000000;
   white-space: nowrap;
+  cursor: pointer;
 }
 .dark-mode .referral-code span {
   color: #ffffff;
@@ -363,7 +365,7 @@ body.dark-mode {
   .profile-image {
     width: 120px;
     height: 120px;
-  }
+  } 
 
   .profile-info {
     width: 100%;
@@ -444,7 +446,7 @@ body.dark-mode {
 }
 
 @media screen and (max-width: 768px) {
-  .history-title {
+  .history-title {  
     font-size: 1.5rem;
   }
 

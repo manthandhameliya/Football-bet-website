@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <script src="football.js"></script>
     <link rel="stylesheet" href="football.css">
+    <link rel="stylesheet" href="MyBet.css">
+    <link rel="stylesheet" href="EarnStars.css">
 </head>
 
 <body class="light-mode">
@@ -120,115 +122,113 @@
                         </div>
                     </div>
                 </div> -->
-           
-
                 <div class="match-cards">
                     <div class="match-card">
-                      <div class="league-header">
-                        <img src="./images/Team_A.svg" alt="Serie A" class="league-logo" />
-                        <span class="league-name">Serie A</span>
-                      </div>
-                      <div class="match-detail">
-                        <div class="team">
-                          <span>Bologna</span>
-                          <img src="./images/Bfc_logo.svg" alt="Bologna" class="team-logo" />
+                        <div class="league-header">
+                            <img src="./images/Team_A.svg" alt="Serie A" class="league-logo" />
+                            <span class="league-name">Serie A</span>
                         </div>
-                        <div class="score"><span>1 - 1</span></div>
-                        <div class="team">
-                          <img src="./images/Nepoli_logo.svg" alt="Napoli" class="team-logo" />
-                          <span>Napoli</span>
+                        <div class="match-detail">
+                            <div class="team">
+                                <span>Bologna</span>
+                                <img src="./images/Bfc_logo.svg" alt="Bologna" class="team-logo" />
+                            </div>
+                            <div class="score"><span>1 - 1</span></div>
+                            <div class="team">
+                                <img src="./images/Nepoli_logo.svg" alt="Napoli" class="team-logo" />
+                                <span>Napoli</span>
+                            </div>
                         </div>
-                      </div>
-                      <div class="action-container">
-                        <button class="bet-close openModal">Play Bet</button>
-                      </div>
+                        <div class="action-container">
+                            <button class="bet-close openModal">Play Bet</button>
+                        </div>
                     </div>
-                  </div>
-                
-                  <!-- Modal -->
-                  <div class="modal-overlay" id="bet-friend">
-                    <div class="modal">
-                      <h2 class="modal-title">Place Your Bet</h2>
-                
-                      <div class="form-group">
-                        <label class="form-label">Stars:</label>
-                        <div class="select-container">
-                        <select class="form-select">
-                          <option>1 Star</option>
-                          <option>2 Stars</option>
-                          
-                          <option>3 Stars</option>
-                          <option>4 Stars</option>
-                          <option>5 Stars</option>
+                </div>
 
-                        </select>
+                <!-- Modal -->
+                <div class="modal-overlay" id="bet-friend">
+                    <div class="modal">
+                        <h2 class="modal-title">Place Your Bet</h2>
+
+                        <div class="form-group">
+                            <label class="form-label">Stars:</label>
+                            <div class="select-container">
+                                <select class="form-select">
+                                    <option>1 Star</option>
+                                    <option>2 Stars</option>
+
+                                    <option>3 Stars</option>
+                                    <option>4 Stars</option>
+                                    <option>5 Stars</option>
+
+                                </select>
+                            </div>
                         </div>
-                      </div>
-                
-                      <div class="form-group">
-                        <select class="form-select">
-                          <option>Public</option>
-                          <option>Private</option>
-                          <option>Friends Only</option>
-                        </select>
-                      </div>
-                
-                      <div class="form-group">
-                        <select class="form-select">
-                          <option>Winner/Draw</option>
-                          <option>Winner</option>
-                          <option>Draw</option>
-                          <option>Loser</option>
-                        </select>
-                      </div>
-                
-                      <div class="form-group">
-                        <select class="form-select">
-                          <option>Brentford</option>
-                          <option>Bologna</option>
-                          <option>Napoli</option>
-                          <option>International</option>
-                        </select>
-                      </div>
-                
-                      <div class="btn-group">
-                        <button class="btn btn-primary" id="placeBetBtn">Place Bet</button>
-                        <button class="btn btn-danger" id="cancelBtn">Cancel</button>
-                      </div>
+
+                        <div class="form-group">
+                            <select class="form-select">
+                                <option>Public</option>
+                                <option>Private</option>
+                                <option>Friends Only</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-select">
+                                <option>Winner/Draw</option>
+                                <option>Winner</option>
+                                <option>Draw</option>
+                                <option>Loser</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-select">
+                                <option>Brentford</option>
+                                <option>Bologna</option>
+                                <option>Napoli</option>
+                                <option>International</option>
+                            </select>
+                        </div>
+
+                        <div class="btn-group">
+                            <button class="btn btn-primary" id="placeBetBtn">Place Bet</button>
+                            <button class="btn btn-danger" id="cancelBtn">Cancel</button>
+                        </div>
                     </div>
-                  </div>
-                
-                  <script>
+                </div>
+
+                <script>
                     const modalOverlay = document.getElementById('bet-friend');
                     const cancelBtn = document.getElementById('cancelBtn');
                     const placeBetBtn = document.getElementById('placeBetBtn');
                     const openModalBtns = document.querySelectorAll('.openModal');
-                
+
                     openModalBtns.forEach(button => {
-                      button.addEventListener('click', () => {
-                        document.querySelector('.modal-title').textContent = "Play Your Bet";
-                        modalOverlay.style.display = 'flex';
-                      });
+                        button.addEventListener('click', () => {
+                            document.querySelector('.modal-title').textContent = "Play Your Bet";
+                            modalOverlay.style.display = 'flex';
+                        });
                     });
-                
+
                     cancelBtn.addEventListener('click', () => {
-                      modalOverlay.style.display = 'none';
-                      document.querySelector('.modal-title').textContent = "Place Your Bet";
-                    });
-                
-                    placeBetBtn.addEventListener('click', () => {
-                      alert("Bet placed successfully!");
-                      modalOverlay.style.display = 'none';
-                      document.querySelector('.modal-title').textContent = "Place Your Bet";
-                    });
-                
-                    modalOverlay.addEventListener('click', (e) => {
-                      if (e.target === modalOverlay) {
                         modalOverlay.style.display = 'none';
                         document.querySelector('.modal-title').textContent = "Place Your Bet";
-                      }
                     });
-                  </script>
+
+                    placeBetBtn.addEventListener('click', () => {
+                        alert("Bet placed successfully!");
+                        modalOverlay.style.display = 'none';
+                        document.querySelector('.modal-title').textContent = "Place Your Bet";
+                    });
+
+                    modalOverlay.addEventListener('click', (e) => {
+                        if (e.target === modalOverlay) {
+                            modalOverlay.style.display = 'none';
+                            document.querySelector('.modal-title').textContent = "Place Your Bet";
+                        }
+                    });
+                </script>
 
                 <div class="table-section">
                     <div class="table-header">
@@ -295,12 +295,7 @@
                             <button class="bet-close-blue">Bet Close</button>
                         </div>
                     </div>
-
-
-
-
                 </div>
-
                 <div class="table-section">
                     <div class="table-header">
                         <div><img src="./images/Team_A.svg" alt="Team" class="table-logo"></div>
@@ -367,12 +362,7 @@
                             <button class="bet-close-primery">Bet Close</button>
                         </div>
                     </div>
-
-
-
-
                 </div>
-
                 <div class="table-section">
                     <div class="table-header">
                         <div><img src="./images/Team_A.svg" alt="Team" class="table-logo"></div>
@@ -483,7 +473,6 @@
                 <!-- Match Card 5 -->
 
                 <div class="match-cards">
-
                     <div class="match-card">
                         <div class="league-header">
                             <img src="./images/Team_A.svg" alt="Serie A" class="league-logo">
@@ -491,7 +480,6 @@
                         </div>
 
                         <div class="match-detail">
-
                             <div class="team">
                                 <span>Bologna</span>
                                 <img src="./images/Bfc_logo.svg" alt="Bologna" class="team-logo">
@@ -511,12 +499,7 @@
                             <button class="bet-close-primery">Bet Close</button>
                         </div>
                     </div>
-
-
-
-
                 </div>
-
                 <div class="table-section">
                     <div class="table-header">
                         <div><img src="./images/Team_A.svg" alt="Team" class="table-logo"></div>
@@ -552,21 +535,16 @@
                     </table>
                 </div>
             </div>
-
         </div>
 
         <div id="tomorrow" class="tab-content">
             <h2 class="title">Matches Tomorrow</h2>
-
             <div class="match-container">
-
                 <!-- Match Card 1 -->
-
                 <div class="match-cards">
                     <div class="title-matchcard">
                         <img src="./images/Team_A.svg" alt="logo" class="match-card-img">
                         <h2 class="title-top">Indian Premier League</h2>
-
                     </div>
                     <div class="match-card">
                         <div class="league-header">
@@ -574,22 +552,18 @@
                             <span class="league-name">Serie A</span>
                         </div>
                         <div class="match-detail">
-
                             <div class="team">
                                 <span>Bologna</span>
                                 <img src="./images/Bfc_logo.svg" alt="Bologna" class="team-logo">
                             </div>
-
                             <div class="score">
                                 <span>2 - 2</span>
                             </div>
-
                             <div class="team" style="justify-content: flex-start; display: flex;">
                                 <img src="./images/Nepoli_logo.svg" alt="Napoli" class="team-logo">
                                 <span>Napoli</span>
                             </div>
                         </div>
-
                         <div class="action-container">
                             <button class="bet-close">Bet Close</button>
                         </div>
@@ -601,7 +575,6 @@
                         <div><img src="./images/Team_A.svg" alt="Team" class="table-logo"></div>
                         <div class="table-action">Show Table</div>
                     </div>
-
                     <table class="standings-table">
                         <thead>
                             <tr>
@@ -639,9 +612,7 @@
                             <img src="./images/Team_A.svg" alt="Serie A" class="league-logo">
                             <span class="league-name">Serie A</span>
                         </div>
-
                         <div class="match-detail">
-
                             <div class="team">
                                 <span>Bologna</span>
                                 <img src="./images/Bfc_logo.svg" alt="Bologna" class="team-logo">
@@ -661,10 +632,6 @@
                             <button class="bet-close-blue">Bet Close</button>
                         </div>
                     </div>
-
-
-
-
                 </div>
 
                 <div class="table-section">
@@ -805,10 +772,6 @@
                             <button class="bet-close">Bet Close</button>
                         </div>
                     </div>
-
-
-
-
                 </div>
 
                 <div class="table-section">
@@ -848,7 +811,6 @@
                 <!-- Match Card 5 -->
 
                 <div class="match-cards">
-
                     <div class="match-card">
                         <div class="league-header">
                             <img src="./images/Team_A.svg" alt="Serie A" class="league-logo">
@@ -876,10 +838,6 @@
                             <button class="bet-close-primery">Bet Close</button>
                         </div>
                     </div>
-
-
-
-
                 </div>
 
                 <div class="table-section">
@@ -919,8 +877,7 @@
             </div>
         </div>
     </div>
-
-
+    
 </body>
 
 </html>

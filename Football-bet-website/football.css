@@ -147,6 +147,7 @@ body.dark-mode {
   background-color: #ebfc69;
   color: #000000;
 }
+
 .dark-mode .tab.active {
   background-color: #ebfc6980;
   color: #000000;
