@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="MyBet.css" />
+    <link rel="stylesheet" href="MyBet.css">
+
 
 </head>
 
@@ -46,120 +46,62 @@
             </div>
 
             <div class="main-content">
-                <!-- Bet Card 1 -->
-                <div class="bet-card" data-status="active">
-                    <h3 class="match-title">Aston Villa VS Newcastle</h3>
-                    <div class="bet-details">
-                        <div class="bet-row">
-                            <span class="bet-label">Category</span>
-                            <span class="bet-value">Winner</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">My Role</span>
-                            <span class="bet-value">Creator</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">My Prediction</span>
-                            <span class="bet-value">2</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Opponent</span>
-                            <span class="bet-value">atomtech</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Opponent Prediction</span>
-                            <span class="bet-value">1</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Stake</span>
-                            <span class="bet-value">1 Stars</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Match Result</span>
-                            <span class="bet-value">* _ *</span>
-                        </div>
-                    </div>
-                    <div class="btn-container">
-                        <button class="btn btn-primary">Bet Set</button>
-                    </div>
+                <div class="table-container">
+                    <table class="bet-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>My Role</th>
+                                <th>My Prediction</th>
+                                <th>Opponent</th>
+                                <th>Opponent Prediction</th>
+                                <th>Stake</th>
+                                <th>Match Result</th>
+                                <th>Home Team</th>
+                                <th>Away Team</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-status="active">
+                                <td>Winner</td>
+                                <td>Creator</td>
+                                <td>2</td>
+                                <td>atomtech</td>
+                                <td>1</td>
+                                <td>1 Stars</td>
+                                <td>* _ *</td>
+                                <td>Aston Villa</td>
+                                <td>Newcastle</td>
+                                <td><button class="status-btn btn-primary">Bet Set</button></td>
+                            </tr>
+                            <tr data-status="waiting">
+                                <td>Winner</td>
+                                <td>Creator</td>
+                                <td>2</td>
+                                <td>N/A</td>
+                                <td>Null</td>
+                                <td>1 Stars</td>
+                                <td>* _ *</td>
+                                <td>Aston Villa</td>
+                                <td>Newcastle</td>
+                                <td><button class="status-btn btn-warning">Waiting </button></td>
+                            </tr>
+                            <tr data-status="finished">
+                                <td>Winner</td>
+                                <td>Creator</td>
+                                <td>2</td>
+                                <td>atomtech</td>
+                                <td>1</td>
+                                <td>1 Stars</td>
+                                <td>* _ *</td>
+                                <td>Aston Villa</td>
+                                <td>Newcastle</td>
+                                <td><button class="status-btn btn-success">Finished</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-
-                <!-- Bet Card 2 -->
-                <div class="bet-card" data-status="waiting">
-                    <h3 class="match-title">Aston Villa VS Newcastle</h3>
-                    <div class="bet-details">
-                        <div class="bet-row">
-                            <span class="bet-label">Category</span>
-                            <span class="bet-value-waiting">Winner</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">My Role</span>
-                            <span class="bet-value-waiting">Creator</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">My Prediction</span>
-                            <span class="bet-value-waiting">2</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Opponent</span>
-                            <span class="bet-value-waiting">N/A</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Opponent Prediction</span>
-                            <span class="bet-value-waiting">Null</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Stake</span>
-                            <span class="bet-value-waiting">1 Stars</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Match Result</span>
-                            <span class="bet-value-waiting">* _ *</span>
-                        </div>
-                    </div>
-                    <div class="btn-container">
-                        <button class="btn btn-warning">Waiting For Opponent</button>
-                    </div>
-                </div>
-
-                <!-- Bet Card 3 -->
-                <div class="bet-card" data-status="finished">
-                    <h3 class="match-title">Aston Villa VS Newcastle</h3>
-                    <div class="bet-details">
-                        <div class="bet-row">
-                            <span class="bet-label">Category</span>
-                            <span class="bet-value-finish">Winner</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">My Role</span>
-                            <span class="bet-value-finish">Creator</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">My Prediction</span>
-                            <span class="bet-value-finish">2</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Opponent</span>
-                            <span class="bet-value-finish">atomtech</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Opponent Prediction</span>
-                            <span class="bet-value-finish">1</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Stake</span>
-                            <span class="bet-value-finish">1 Stars</span>
-                        </div>
-                        <div class="bet-row">
-                            <span class="bet-label">Match Result</span>
-                            <span class="bet-value-finish">* _ *</span>
-                        </div>
-                    </div>
-                    <div class="btn-container">
-                        <button class="btn btn-success">Finished</button>
-                    </div>
-                </div>
-                <div class="bottom-height"></div>
             </div>
         </div>
     </div>
@@ -172,22 +114,21 @@
             const filterIcon = document.querySelector('.filter-icon');
             filterIcon.classList.toggle('open');
         }
-
-        // Filtering function
+     
         const checkboxes = document.querySelectorAll('.filter-checkbox');
         checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', filterCards);
+            checkbox.addEventListener('change', filterRows);
         });
 
-        function filterCards() {
+        function filterRows() {
             const allChecked = document.getElementById('all').checked;
             const activeChecked = document.getElementById('active').checked;
             const waitingChecked = document.getElementById('waiting').checked;
             const finishedChecked = document.getElementById('finished').checked;
 
-            const cards = document.querySelectorAll('.bet-card');
-            cards.forEach(card => {
-                const status = card.getAttribute('data-status');
+            const rows = document.querySelectorAll('.bet-table tbody tr');
+            rows.forEach(row => {
+                const status = row.getAttribute('data-status');
                 let shouldShow = false;
 
                 if (allChecked) {
@@ -201,13 +142,33 @@
                 }
 
                 if (shouldShow) {
-                    card.classList.remove('hidden');
+                    row.classList.remove('hidden');
                 } else {
-                    card.classList.add('hidden');
+                    row.classList.add('hidden');
                 }
             });
         }
+
+        document.getElementById('all').addEventListener('change', function() {
+            if (this.checked) {
+                document.getElementById('active').checked = false;
+                document.getElementById('waiting').checked = false;
+                document.getElementById('finished').checked = false;
+            }
+        });
+
+        document.querySelectorAll('#active, #waiting, #finished').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.getElementById('all').checked = false;
+                }
+                if (!document.getElementById('active').checked && 
+                    !document.getElementById('waiting').checked && 
+                    !document.getElementById('finished').checked) {
+                    document.getElementById('all').checked = true;
+                }
+            });
+        });
     </script>
 </body>
-
 </html>

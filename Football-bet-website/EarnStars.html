@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="EarnStars.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
 </head>
 
 <body class="light-mode">
@@ -18,74 +19,121 @@
     <div class="es-card">
       <h2 class="es-card-title">Choose a Game to Earn Stars!</h2>
 
-      <!-- Quiz Modal placed below the title -->
+      <!-- Quiz Modal -->
+       <div class="modal-wrapper">
+      
+
       <div class="modal" id="quizz-modal">
         <div class="modal-content">
-          <button class="close-button" id="modal-close-x">
+          <button class="close-button" id="modal-close-quizz">
             <span class="material-symbols-outlined">close</span>
           </button>
-
           <h3 class="modal-header">Get More Stars With Quizz!</h3>
-
           <div class="modal-info">
             <div class="info-row">
               <span class="info-label">Stars:</span>
               <span class="info-value" id="stars-count">0</span>
+            </div>
+            <div id="quiz-content" style="display: none;">
+              <p class="quiz-question">Quelle equipe a remporte la coupe mitropa 1965 ?</p>
             </div>
             <div class="info-row">
               <span class="info-label">Time Left:</span>
               <span class="info-value" id="time-left">10</span>
             </div>
           </div>
-
-          <div id="quiz-content">
-            <p class="quiz-question">Quelle equipe a remporte la coupe mitropa 1965 ?</p>
+          <div id="quiz-options" style="display: none;">
             <div class="quiz-options">
-              <button class="option-button">Tj Slovan Bratislava</button>
+              <button class="option-button">TJ Slovan Bratislava</button>
               <button class="option-button">Vasas SC</button>
               <button class="option-button">Acf Fiorentina</button>
             </div>
           </div>
-
           <div class="modal-footer">
-            <button class="close-modal-btn" id="close-btn">Close</button>
+            <button class="close-modal-btn" id="close-btn-quizz">Close</button>
           </div>
         </div>
       </div>
+    </div>
+
+      <!-- Spin Wheel Modal -->
+       <div class="modal-wrapper">
+
+      <div class="modal" id="spin-modal">
+        <div class="modal-content">
+          <button class="close-button" id="modal-close-spin">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+          <h3 class="modal-header es-card-title">Spin The Wheel For Stars!</h3>
+          <div id="spin-wheel-container"></div>
+          <div id="spin-result" class="modal-info" style="display: none; text-align: center; margin-top: 20px;">
+            <p id="spin-message"></p>
+          </div>
+          <div class="modal-footer">
+            <button class="close-modal-btn" id="close-btn-spin">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
       <div class="es-buttons-container">
         <button class="game-button" id="quizz-btn">Quizz</button>
-        <button class="game-button">Spin Wheel</button>
+        <button class="game-button" id="spin-btn">Spin Wheel</button>
       </div>
     </div>
   </div>
 
   <script>
-    // Get DOM Elements
+    // DOM Elements – Quizz
     const quizzBtn = document.getElementById('quizz-btn');
-    const modal = document.getElementById('quizz-modal');
-    const closeBtn = document.getElementById('close-btn');
-    const closeX = document.getElementById('modal-close-x');
+    const quizzModal = document.getElementById('quizz-modal');
+    const modalContentQuizz = document.querySelector('#quizz-modal .modal-content');
+    const closeBtnQuizz = document.getElementById('close-btn-quizz');
+    const closeXQuizz = document.getElementById('modal-close-quizz');
     const timeLeftEl = document.getElementById('time-left');
-
+    const quizContent = document.getElementById('quiz-content');
+    const quizOptions = document.getElementById('quiz-options');
+  
+    // DOM Elements – Spin
+    const spinBtn = document.getElementById('spin-btn');
+    const spinModal = document.getElementById('spin-modal');
+    const modalContentSpin = document.querySelector('#spin-modal .modal-content');
+    const closeBtnSpin = document.getElementById('close-btn-spin');
+    const closeXSpin = document.getElementById('modal-close-spin');
+    const spinResult = document.getElementById('spin-result');
+    const spinMessage = document.getElementById('spin-message');
+  
     let timeLeft = 10;
     let timerInterval;
-
-    function openModal() {
-      modal.style.display = 'flex';
+  
+    function openQuizzModal() {
+      quizzModal.style.display = 'flex';
       startTimer();
+      quizContent.style.display = 'none';
+      quizOptions.style.display = 'none';
+      modalContentQuizz.classList.remove('expanded');
+  
+      setTimeout(() => {
+        quizContent.style.display = 'block';
+        quizOptions.style.display = 'block';
+        modalContentQuizz.classList.add('expanded');
+      }, 300); 
     }
-
-    function closeModal() {
-      modal.style.display = 'none';
+  
+    function closeQuizzModal() {
+      quizzModal.style.display = 'none';
       clearInterval(timerInterval);
       timeLeft = 10;
       timeLeftEl.textContent = timeLeft;
+      quizContent.style.display = 'none';
+      quizOptions.style.display = 'none';
+      modalContentQuizz.classList.remove('expanded');
     }
-
+  
     function startTimer() {
       timeLeft = 10;
       timeLeftEl.textContent = timeLeft;
+      clearInterval(timerInterval);
       timerInterval = setInterval(() => {
         timeLeft--;
         timeLeftEl.textContent = timeLeft;
@@ -94,11 +142,111 @@
         }
       }, 1000);
     }
-
-    quizzBtn.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
-    closeX.addEventListener('click', closeModal);
+  
+    function openSpinModal() {
+      spinModal.style.display = 'flex';
+      if (!document.querySelector('#spin-wheel-container canvas')) {
+        new p5(spinSketch, 'spin-wheel-container');
+      }
+    }
+  
+    function closeSpinModal() {
+      spinModal.style.display = 'none';
+      spinResult.style.display = 'none';
+  
+      const canvas = document.querySelector('#spin-wheel-container canvas');
+      if (canvas) {
+        canvas.remove();
+      }
+    }
+  
+    let spinSketch = function (p) {
+      let angle = 0;
+      let targetAngle = 0;
+      let spinning = false;
+      let segments = [10, 0, 1, 0, 0, 1];
+      let colors = ['#16FFFD', '#EB00F6', '#0300F5', '#E90002', '#F9FF0C', '#14FF09'];
+      let result = 0;
+  
+      p.setup = function () {
+        const canvas = p.createCanvas(300, 300);
+        canvas.parent('spin-wheel-container');
+        p.textAlign(p.CENTER, p.CENTER);
+        p.textSize(20);
+      };
+  
+      p.draw = function () {
+        p.clear(); // Clears previous frames
+        p.background(255);  
+        p.translate(p.width / 2, p.height / 2);
+  
+        if (spinning) {
+          angle += (targetAngle - angle) * 0.1;
+          if (Math.abs(targetAngle - angle) < 0.1) {
+            spinning = false;
+            let segmentIndex = Math.floor(
+              (((angle % (2 * p.PI)) + 2 * p.PI) % (2 * p.PI)) / (2 * p.PI / segments.length)
+            );
+            result = segments[segmentIndex];
+            spinResult.style.display = 'block';
+            spinMessage.textContent = `Earn ${result} star${result !== 1 ? 's' : ''}`;
+          }
+        }
+  
+        p.rotate(angle);
+        for (let i = 0; i < segments.length; i++) {
+          p.fill(colors[i]);
+          p.arc(0, 0, 280, 280, i * p.TWO_PI / segments.length, (i + 1) * p.TWO_PI / segments.length, p.PIE);
+  
+          // Dotted border
+          p.stroke(255);
+          p.strokeWeight(3);
+          p.noFill();
+          p.drawingContext.setLineDash([5, 5]);
+          p.arc(0, 0, 260, 260, i * p.TWO_PI / segments.length, (i + 1) * p.TWO_PI / segments.length, p.PIE);
+          p.drawingContext.setLineDash([]);
+          p.noStroke();
+  
+          // Segment labels
+          p.push();
+          p.rotate((i + 0.5) * p.TWO_PI / segments.length - angle);
+          p.fill(255);
+          p.text(segments[i], 0, -100);
+          p.pop();
+        }
+  
+        // Center "TAP" button
+        p.fill(200);
+        p.ellipse(0, 0, 50, 50);
+        p.fill(0);
+        p.textSize(16);
+        p.text('TAP', 0, 0);
+      };
+  
+      p.mousePressed = function () {
+        if (
+          !spinning &&
+          p.mouseX >= 0 &&
+          p.mouseX <= p.width &&
+          p.mouseY >= 0 &&
+          p.mouseY <= p.height
+        ) {
+          spinning = true;
+          targetAngle = angle + p.random(10, 20) * p.TWO_PI;
+        }
+      };
+    };
+  
+    // === Event Listeners ===
+    quizzBtn?.addEventListener('click', openQuizzModal);
+    closeBtnQuizz?.addEventListener('click', closeQuizzModal);
+    closeXQuizz?.addEventListener('click', closeQuizzModal);
+  
+    spinBtn?.addEventListener('click', openSpinModal);
+    closeBtnSpin?.addEventListener('click', closeSpinModal);
+    closeXSpin?.addEventListener('click', closeSpinModal);
   </script>
+  
 </body>
 
 </html>

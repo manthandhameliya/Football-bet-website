@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="football.css">
     <link rel="stylesheet" href="MyBet.css">
     <link rel="stylesheet" href="EarnStars.css">
+    <link rel="stylesheet" href="footer.css">
 </head>
 
 <body class="light-mode">
@@ -33,7 +34,21 @@
         </nav>
 
         <div class="icons">
-            <span class="material-symbols-rounded icon">search</span>
+            <div class="dropdown-container">
+                <div class="material-symbols-rounded icon language-icon">language</div>
+                <div class="language-dropdown">
+                  <div class="dropdown-header">
+                    <h4 id="selected-language">Language</h4>
+                    <span class="material-symbols-rounded icons" id="down-arrow">arrow_drop_down</span>
+                  </div>
+                  <div class="dropdown-content">
+                    <div class="language-option active" data-lang="fr">French</div>
+                    <div class="language-option" data-lang="en">English</div>
+                    <div class="language-option" data-lang="es">Spanish</div>
+                  </div>
+                </div>
+              </div>
+              
             <span class="material-symbols-rounded icon">notifications</span>
             <div id="personBtn">
 
@@ -48,6 +63,42 @@
         </div>
 
     </header>
+    <!-- lengavage_icon_javascript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const languageIcon = document.querySelector('.language-icon');
+          const languageDropdown = document.querySelector('.language-dropdown');
+          const languageOptions = document.querySelectorAll('.language-option');
+          const dropdownHeader = document.getElementById('selected-language');
+      
+          languageIcon.addEventListener('click', function (e) {
+            e.stopPropagation();
+            languageDropdown.style.display =
+              languageDropdown.style.display === 'block' ? 'none' : 'block';
+          });
+      
+          document.addEventListener('click', function (e) {
+            if (
+              !languageDropdown.contains(e.target) &&
+              !languageIcon.contains(e.target)
+            ) {
+              languageDropdown.style.display = 'none';
+            }
+          });
+      
+          languageOptions.forEach((option) => {
+            option.addEventListener('click', function () {
+              languageOptions.forEach((opt) => opt.classList.remove('active'));
+              this.classList.add('active');
+      
+              dropdownHeader.textContent = this.textContent;
+      
+              languageDropdown.style.display = 'none';
+              console.log('Language changed to:', this.textContent);
+            });
+          });
+        });
+      </script>
     <!-- popup-javascript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -877,7 +928,7 @@
             </div>
         </div>
     </div>
-    
+
 </body>
 
 </html>
