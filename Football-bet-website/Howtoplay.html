@@ -16,7 +16,7 @@
 
 <body class="light-mode">
     <div class="container">
-        <h1>How To Play</h1>    
+        <h1>How To Play</h1>
 
         <div class="content-box">
             <div class="content-inner">
@@ -57,11 +57,11 @@
                     </li>
                     <li>Daily spin: Spin the wheel once every 24 hours to win 0 to 10 Bronze Stars.</li>
                     <li>Watching ads: Earn 20 Bronze Stars per ad, watchable once every 4 hours.</li>
-                    <li>4 Goals Game<button>play</button> Earn 0 to 10 Bronze Stars per game, playable once every 2
-                        hours.
-                        In this game, four non-identical digits from 0 to 9 are hidden. You attempt to guess these four
-                        digits and their exact positions.
-                        After each guess, you'll receive feedback in the form of "goals scored" and "goals missed".
+                    <li>
+                        4 Goals Game
+                        <button onclick="openModal()">Play</button>
+                        Earn 0 to 10 Bronze Stars per game, playable once every 2
+                    </li> 
                     </li>
                     <li>"Goals scored" indicates the number of digits you've guessed correctly and placed in the correct
                         position.</li>
@@ -73,10 +73,17 @@
                         Star.</li>
                     <li>The game ends when you guess the correct combination or exhaust your Bronze Stars.</li>
                 </ul>
-
+                <div id="myModal"
+                    style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;">
+                    <div style="background: white; padding: 20px; border-radius: 10px; position: relative;">
+                        <h2>4 Goals Game</h2>
+                        <p>Game instructions or content goes here...</p>
+                        <button onclick="closeModal()">Close</button>
+                    </div>
+                </div>
                 <div class="example-box">
                     <h2>Example:</h2>
-                
+
                     <div class="example-item">• Hidden number: 0345</div>
                     <div class="example-item">• Your guess: 4530</div>
                     <div class="example-item">• Feedback: 4 goals missed (4 correct digits, all in the wrong position)
@@ -119,6 +126,16 @@
             </div>
 
         </div>
+
+        <script>
+            function openModal() {
+                document.getElementById("myModal").style.display = "flex";
+            }
+
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+        </script>
 </body>
 
 </html>

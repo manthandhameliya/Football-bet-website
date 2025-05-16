@@ -36,7 +36,7 @@ body.dark-mode {
   display: grid;
   grid-template-rows: auto auto;
   justify-items: center;
-  gap: 1.5rem;
+  gap: 1.5rem;  
   padding: 0 15px;
 }
 
